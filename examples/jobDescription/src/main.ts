@@ -20,3 +20,17 @@ processRequests("😀> ", process.argv[2], async (request) => {
     }
     console.log(`The job tags are ${response.data}`);
 });
+
+// function to process the user input and return the Jobtag response
+export async function getJobTagResponse(userInput: string) {
+    try {
+      const response = await translator.translate(userInput);
+      console.log("api response", response);
+      if (response) {
+        console.log("response", response);
+        return response;
+      }
+    } catch (error) {
+      return error;
+    }
+  }
